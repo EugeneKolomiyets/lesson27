@@ -1,0 +1,18 @@
+#!/bin/bash
+echo -n "enter first coefficient: "
+read a
+echo -n "enter second coefficient: "
+read b
+echo -n "enter third coefficient: "
+read c
+((D=b*b-4*a*c))
+if [ $D  -eq 0 ] 
+then
+echo "only one root $((-b/2/a))"
+elif [ $D -gt 0 ] 
+then
+E=$(echo "$D" | awk '{print sqrt($1)}')
+echo "there are two roos: first root $(( (-b+E)/2/a)) second root $(( (-b-E)/2/a ))"
+else
+echo "roots are absent"
+fi
